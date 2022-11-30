@@ -1,0 +1,18 @@
+# docker-compose
+version: '3.7'
+services:
+services:
+  app:
+    container_name: 'game-of-life-dev'
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    command: sh -c "npm start"
+    ports:
+      - 4200:4200
+    working_dir: /home/node/app
+    volumes:
+      - ./:/home/node/app
+      - node_modules:/home/node/app/node_modules
+volumes:
+  node_modules:
